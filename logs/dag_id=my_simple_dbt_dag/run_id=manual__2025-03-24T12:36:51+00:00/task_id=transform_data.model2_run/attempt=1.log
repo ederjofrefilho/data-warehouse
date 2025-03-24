@@ -1,0 +1,58 @@
+[2025-03-24T12:42:10.364+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T12:42:10.386+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_simple_dbt_dag.transform_data.model2_run manual__2025-03-24T12:36:51+00:00 [queued]>
+[2025-03-24T12:42:10.393+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_simple_dbt_dag.transform_data.model2_run manual__2025-03-24T12:36:51+00:00 [queued]>
+[2025-03-24T12:42:10.393+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-03-24T12:42:10.404+0000] {taskinstance.py:2890} INFO - Executing <Task(DbtRunLocalOperator): transform_data.model2_run> on 2025-03-24 12:36:51+00:00
+[2025-03-24T12:42:10.416+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=440) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-24T12:42:10.417+0000] {standard_task_runner.py:72} INFO - Started process 442 to run task
+[2025-03-24T12:42:10.419+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_simple_dbt_dag', 'transform_data.model2_run', 'manual__2025-03-24T12:36:51+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/my_simple_dbt_dag.py', '--cfg-path', '/tmp/tmp3eslw786']
+[2025-03-24T12:42:10.421+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask transform_data.model2_run
+[2025-03-24T12:42:10.473+0000] {task_command.py:467} INFO - Running <TaskInstance: my_simple_dbt_dag.transform_data.model2_run manual__2025-03-24T12:36:51+00:00 [running]> on host cc9050e3ce5a
+[2025-03-24T12:42:10.542+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_simple_dbt_dag' AIRFLOW_CTX_TASK_ID='transform_data.model2_run' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T12:36:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-24T12:36:51+00:00'
+[2025-03-24T12:42:10.543+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-24T12:42:10.543+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-24T12:42:10.544+0000] {logging_mixin.py:190} INFO - Current task name:transform_data.model2_run state:running start_date:2025-03-24 12:42:10.386646+00:00
+[2025-03-24T12:42:10.544+0000] {logging_mixin.py:190} INFO - Dag name:my_simple_dbt_dag and current dag run status:running
+[2025-03-24T12:42:10.544+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T12:42:11.509+0000] {local.py:213} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-03-24T12:42:11.510+0000] {local.py:416} INFO - Cloning project to writable temp directory /tmp/tmp9nsr4m9f from /opt/airflow/dags/dbt/dbt_biera
+[2025-03-24T12:42:11.510+0000] {local.py:427} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/my_simple_dbt_dag__transform_data/target/partial_parse.msgpack
+[2025-03-24T12:42:11.515+0000] {config.py:360} INFO - Profile caching is enable.
+[2025-03-24T12:42:11.523+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-03-24T12:42:11.524+0000] {config.py:340} INFO - Profile found in cache using profile: /tmp/cosmos/profile/f9e0be4e0f678dd63b6be919e6f5e508e5507019985f0f32d9ae18be545bcfbd/profiles.yml.
+[2025-03-24T12:42:11.524+0000] {runner.py:60} INFO - Trying to run dbtRunner with:
+ ['run', '--vars', '{"my_name": no_entry }', '--models', 'model2', '--project-dir', '/tmp/tmp9nsr4m9f', '--profiles-dir', '/tmp/cosmos/profile/f9e0be4e0f678dd63b6be919e6f5e508e5507019985f0f32d9ae18be545bcfbd', '--profile', 'default', '--target', 'dev']
+ in /tmp/tmp9nsr4m9f
+[2025-03-24T12:42:11.589+0000] {logging_mixin.py:190} INFO - 12:42:11  Running with dbt=1.9.3
+[2025-03-24T12:42:12.026+0000] {logging_mixin.py:190} INFO - 12:42:12  Registered adapter: postgres=1.9.0
+[2025-03-24T12:42:12.636+0000] {logging_mixin.py:190} INFO - 12:42:12  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_biera.example
+[2025-03-24T12:42:12.714+0000] {logging_mixin.py:190} INFO - 12:42:12  Found 2 models, 433 macros
+[2025-03-24T12:42:12.716+0000] {logging_mixin.py:190} INFO - 12:42:12
+[2025-03-24T12:42:12.717+0000] {logging_mixin.py:190} INFO - 12:42:12  Concurrency: 1 threads (target='dev')
+[2025-03-24T12:42:12.717+0000] {logging_mixin.py:190} INFO - 12:42:12
+[2025-03-24T12:42:12.811+0000] {logging_mixin.py:190} INFO - 12:42:12  1 of 1 START sql view model postgres.model2 .................................... [RUN]
+[2025-03-24T12:42:12.914+0000] {logging_mixin.py:190} INFO - 12:42:12  1 of 1 OK created sql view model postgres.model2 ............................... [CREATE VIEW in 0.10s]
+[2025-03-24T12:42:12.927+0000] {logging_mixin.py:190} INFO - 12:42:12
+[2025-03-24T12:42:12.927+0000] {logging_mixin.py:190} INFO - 12:42:12  Finished running 1 view model in 0 hours 0 minutes and 0.21 seconds (0.21s).
+[2025-03-24T12:42:12.952+0000] {logging_mixin.py:190} INFO - 12:42:12
+[2025-03-24T12:42:12.953+0000] {logging_mixin.py:190} INFO - 12:42:12  Completed successfully
+[2025-03-24T12:42:12.953+0000] {logging_mixin.py:190} INFO - 12:42:12
+[2025-03-24T12:42:12.954+0000] {logging_mixin.py:190} INFO - 12:42:12  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-03-24T12:42:13.498+0000] {local.py:465} INFO - Inlets: [Dataset(uri='postgres://postgres:5432/postgres.postgres.model1', extra=None)]
+[2025-03-24T12:42:13.499+0000] {local.py:466} INFO - Outlets: [Dataset(uri='postgres://postgres:5432/postgres.postgres.model2', extra=None)]
+[2025-03-24T12:42:13.499+0000] {local.py:656} INFO - Assigning inlets/outlets with DatasetAlias
+[2025-03-24T12:42:13.544+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T12:42:13.545+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_simple_dbt_dag, task_id=transform_data.model2_run, run_id=manual__2025-03-24T12:36:51+00:00, execution_date=20250324T123651, start_date=20250324T124210, end_date=20250324T124213
+[2025-03-24T12:42:13.552+0000] {taskinstance.py:3054} WARNING - Created a new DatasetModel(uri='postgres://postgres:5432/postgres.postgres.model2', extra={}) as it did not exist.
+[2025-03-24T12:42:13.559+0000] {taskinstance.py:3064} INFO - Creating event for DatasetModel(uri='postgres://postgres:5432/postgres.postgres.model2', extra={}) through aliases "my_simple_dbt_dag__transform_data__model2_run"
+[2025-03-24T12:42:13.610+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-24T12:42:13.610+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-24T12:42:13.610+0000] {logging_mixin.py:190} INFO - Dag name:my_simple_dbt_dag queued_at:2025-03-24 12:36:57.333232+00:00
+[2025-03-24T12:42:13.611+0000] {logging_mixin.py:190} INFO - Task hostname:cc9050e3ce5a operator:DbtRunLocalOperator
+[2025-03-24T12:42:13.677+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T12:42:13.705+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T12:42:13.709+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

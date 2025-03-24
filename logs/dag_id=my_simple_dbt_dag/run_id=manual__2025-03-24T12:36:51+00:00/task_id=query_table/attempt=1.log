@@ -1,0 +1,37 @@
+[2025-03-24T12:42:15.317+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T12:42:15.335+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_simple_dbt_dag.query_table manual__2025-03-24T12:36:51+00:00 [queued]>
+[2025-03-24T12:42:15.341+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_simple_dbt_dag.query_table manual__2025-03-24T12:36:51+00:00 [queued]>
+[2025-03-24T12:42:15.341+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-03-24T12:42:15.354+0000] {taskinstance.py:2890} INFO - Executing <Task(PostgresOperator): query_table> on 2025-03-24 12:36:51+00:00
+[2025-03-24T12:42:15.366+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=451) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-24T12:42:15.367+0000] {standard_task_runner.py:72} INFO - Started process 453 to run task
+[2025-03-24T12:42:15.369+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_simple_dbt_dag', 'query_table', 'manual__2025-03-24T12:36:51+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/my_simple_dbt_dag.py', '--cfg-path', '/tmp/tmpmnou97d2']
+[2025-03-24T12:42:15.370+0000] {standard_task_runner.py:105} INFO - Job 6: Subtask query_table
+[2025-03-24T12:42:15.413+0000] {task_command.py:467} INFO - Running <TaskInstance: my_simple_dbt_dag.query_table manual__2025-03-24T12:36:51+00:00 [running]> on host cc9050e3ce5a
+[2025-03-24T12:42:15.477+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_simple_dbt_dag' AIRFLOW_CTX_TASK_ID='query_table' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T12:36:51+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-24T12:36:51+00:00'
+[2025-03-24T12:42:15.479+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-24T12:42:15.479+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-24T12:42:15.479+0000] {logging_mixin.py:190} INFO - Current task name:query_table state:running start_date:2025-03-24 12:42:15.335967+00:00
+[2025-03-24T12:42:15.479+0000] {logging_mixin.py:190} INFO - Dag name:my_simple_dbt_dag and current dag run status:running
+[2025-03-24T12:42:15.480+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T12:42:15.480+0000] {sql.py:296} INFO - Executing: SELECT * FROM postgres.postgres.model2
+[2025-03-24T12:42:15.489+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-03-24T12:42:15.497+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-03-24T12:42:15.498+0000] {sql.py:248} WARNING - This setter is for backward compatibility and should not be used.
+Since the introduction of connection property, the providers listed below breaks due to assigning value to self.connection in their __init__ method.
+* apache-***-providers-mysql<5.7.1
+* apache-***-providers-elasticsearch<5.5.1
+* apache-***-providers-postgres<5.13.0
+[2025-03-24T12:42:15.501+0000] {sql.py:624} INFO - Running statement: SELECT * FROM postgres.postgres.model2, parameters: None
+[2025-03-24T12:42:15.502+0000] {sql.py:633} INFO - Rows affected: 1
+[2025-03-24T12:42:15.526+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T12:42:15.526+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=my_simple_dbt_dag, task_id=query_table, run_id=manual__2025-03-24T12:36:51+00:00, execution_date=20250324T123651, start_date=20250324T124215, end_date=20250324T124215
+[2025-03-24T12:42:15.547+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-24T12:42:15.547+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-24T12:42:15.548+0000] {logging_mixin.py:190} INFO - Dag name:my_simple_dbt_dag queued_at:2025-03-24 12:36:57.333232+00:00
+[2025-03-24T12:42:15.548+0000] {logging_mixin.py:190} INFO - Task hostname:cc9050e3ce5a operator:PostgresOperator
+[2025-03-24T12:42:15.581+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-24T12:42:15.602+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T12:42:15.605+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

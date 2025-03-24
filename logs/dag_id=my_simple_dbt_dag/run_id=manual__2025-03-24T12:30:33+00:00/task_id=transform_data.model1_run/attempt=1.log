@@ -1,0 +1,158 @@
+[2025-03-24T12:30:59.445+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-24T12:30:59.462+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_simple_dbt_dag.transform_data.model1_run manual__2025-03-24T12:30:33+00:00 [queued]>
+[2025-03-24T12:30:59.467+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_simple_dbt_dag.transform_data.model1_run manual__2025-03-24T12:30:33+00:00 [queued]>
+[2025-03-24T12:30:59.468+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-03-24T12:30:59.477+0000] {taskinstance.py:2890} INFO - Executing <Task(DbtRunLocalOperator): transform_data.model1_run> on 2025-03-24 12:30:33+00:00
+[2025-03-24T12:30:59.490+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=295) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-03-24T12:30:59.491+0000] {standard_task_runner.py:72} INFO - Started process 304 to run task
+[2025-03-24T12:30:59.493+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'my_simple_dbt_dag', 'transform_data.model1_run', 'manual__2025-03-24T12:30:33+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/my_simple_dbt_dag.py', '--cfg-path', '/tmp/tmpkxx7xtcn']
+[2025-03-24T12:30:59.495+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask transform_data.model1_run
+[2025-03-24T12:30:59.547+0000] {task_command.py:467} INFO - Running <TaskInstance: my_simple_dbt_dag.transform_data.model1_run manual__2025-03-24T12:30:33+00:00 [running]> on host 9f16139e2237
+[2025-03-24T12:30:59.618+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_simple_dbt_dag' AIRFLOW_CTX_TASK_ID='transform_data.model1_run' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T12:30:33+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-24T12:30:33+00:00'
+[2025-03-24T12:30:59.620+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-24T12:30:59.620+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-24T12:30:59.620+0000] {logging_mixin.py:190} INFO - Current task name:transform_data.model1_run state:running start_date:2025-03-24 12:30:59.462313+00:00
+[2025-03-24T12:30:59.620+0000] {logging_mixin.py:190} INFO - Dag name:my_simple_dbt_dag and current dag run status:running
+[2025-03-24T12:30:59.621+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-03-24T12:31:00.845+0000] {local.py:213} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-03-24T12:31:00.846+0000] {local.py:416} INFO - Cloning project to writable temp directory /tmp/tmphtkd3yrn from /opt/airflow/dags/dbt/dbt_biera
+[2025-03-24T12:31:00.846+0000] {local.py:427} INFO - Partial parse is enabled and the latest partial parse file is None
+[2025-03-24T12:31:00.847+0000] {config.py:360} INFO - Profile caching is enable.
+[2025-03-24T12:31:00.856+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-03-24T12:31:00.857+0000] {base.py:244} INFO - Using real values for profile default
+[2025-03-24T12:31:00.858+0000] {config.py:347} INFO - Profile not found in cache storing and using profile: /tmp/cosmos/profile/bc7478e213c1ca371e82128efc92d6b423c7c2d6deb55981da4dc761e2187f14/profiles.yml.
+[2025-03-24T12:31:00.859+0000] {runner.py:60} INFO - Trying to run dbtRunner with:
+ ['run', '--vars', '{"my_name": no_entry }', '--models', 'model1', '--project-dir', '/tmp/tmphtkd3yrn', '--profiles-dir', '/tmp/cosmos/profile/bc7478e213c1ca371e82128efc92d6b423c7c2d6deb55981da4dc761e2187f14', '--profile', 'default', '--target', 'dev']
+ in /tmp/tmphtkd3yrn
+[2025-03-24T12:31:00.924+0000] {logging_mixin.py:190} INFO - 12:31:00  Running with dbt=1.9.3
+[2025-03-24T12:31:01.399+0000] {logging_mixin.py:190} INFO - 12:31:01  Registered adapter: postgres=1.9.0
+[2025-03-24T12:31:01.937+0000] {logging_mixin.py:190} INFO - 12:31:01  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2025-03-24T12:31:02.901+0000] {logging_mixin.py:190} INFO - 12:31:02  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_biera.example
+[2025-03-24T12:31:02.967+0000] {logging_mixin.py:190} INFO - 12:31:02  Found 2 models, 433 macros
+[2025-03-24T12:31:02.969+0000] {logging_mixin.py:190} INFO - 12:31:02
+[2025-03-24T12:31:02.970+0000] {logging_mixin.py:190} INFO - 12:31:02  Concurrency: 1 threads (target='dev')
+[2025-03-24T12:31:02.970+0000] {logging_mixin.py:190} INFO - 12:31:02
+[2025-03-24T12:31:03.009+0000] {logging_mixin.py:190} INFO - 12:31:03
+[2025-03-24T12:31:03.010+0000] {logging_mixin.py:190} INFO - 12:31:03  Finished running  in 0 hours 0 minutes and 0.04 seconds (0.04s).
+[2025-03-24T12:31:03.010+0000] {logging_mixin.py:190} INFO - 12:31:03  Encountered an error:
+Database Error
+  connection to server at "localhost" (::1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+[2025-03-24T12:31:03.651+0000] {local.py:465} INFO - Inlets: []
+[2025-03-24T12:31:03.651+0000] {local.py:466} INFO - Outlets: []
+[2025-03-24T12:31:03.651+0000] {local.py:656} INFO - Assigning inlets/outlets with DatasetAlias
+[2025-03-24T12:31:03.669+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/base.py", line 299, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 708, in build_and_run_cmd
+    result = self.run_command(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 556, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 227, in handle_exception_dbt_runner
+    return dbt_runner.handle_exception_if_needed(result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/dbt/runner.py", line 109, in handle_exception_if_needed
+    raise CosmosDbtRunError(f"dbt invocation did not complete with unhandled error: {result.exception}")
+cosmos.exceptions.CosmosDbtRunError: dbt invocation did not complete with unhandled error: Database Error
+  connection to server at "localhost" (::1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  
+[2025-03-24T12:31:03.684+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-03-24T12:31:03.684+0000] {logging_mixin.py:190} INFO - Task start:2025-03-24 12:30:59.462313+00:00 end:2025-03-24 12:31:03.683812+00:00 duration:4.221499
+[2025-03-24T12:31:03.685+0000] {logging_mixin.py:190} INFO - Task:<Task(DbtRunLocalOperator): transform_data.model1_run> dag:<DAG: my_simple_dbt_dag> dagrun:<DagRun my_simple_dbt_dag @ 2025-03-24 12:30:33+00:00: manual__2025-03-24T12:30:33+00:00, state:running, queued_at: 2025-03-24 12:30:56.282330+00:00. externally triggered: True>
+[2025-03-24T12:31:03.685+0000] {logging_mixin.py:190} INFO - Failure caused by dbt invocation did not complete with unhandled error: Database Error
+  connection to server at "localhost" (::1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  
+[2025-03-24T12:31:03.685+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=my_simple_dbt_dag, task_id=transform_data.model1_run, run_id=manual__2025-03-24T12:30:33+00:00, execution_date=20250324T123033, start_date=20250324T123059, end_date=20250324T123103
+[2025-03-24T12:31:03.722+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-03-24T12:31:03.723+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 3 for task transform_data.model1_run (dbt invocation did not complete with unhandled error: Database Error
+  connection to server at "localhost" (::1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  ; 304)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/base.py", line 299, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 708, in build_and_run_cmd
+    result = self.run_command(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 556, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 227, in handle_exception_dbt_runner
+    return dbt_runner.handle_exception_if_needed(result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/dbt/runner.py", line 109, in handle_exception_if_needed
+    raise CosmosDbtRunError(f"dbt invocation did not complete with unhandled error: {result.exception}")
+cosmos.exceptions.CosmosDbtRunError: dbt invocation did not complete with unhandled error: Database Error
+  connection to server at "localhost" (::1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+  	Is the server running on that host and accepting TCP/IP connections?
+  
+[2025-03-24T12:31:03.793+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-24T12:31:03.824+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-24T12:31:03.827+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
