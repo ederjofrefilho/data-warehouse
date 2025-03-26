@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: warehouse
+    schema: source
+
+    tables:
+      - name: meta_ads_campaigns
+        description: "Tabela source das campanhas do meta ads"
+        
+        columns:
+          - name: id
+          - name: name
+          - name: status
+          - name: objective
+          - name: spend_cap
+          - name: stop_time
+          - name: account_id
+          - name: start_time
+          - name: bid_strategy
+          - name: created_time
+          - name: daily_budget
+          - name: updated_time
+          - name: lifetime_budget
+          - name: effective_status
+          - name: source_campaign_id
+          - name: _airbyte_raw_id
+          - name: _airbyte_gerenation_id
+          - name: _airbyte_meta
+
