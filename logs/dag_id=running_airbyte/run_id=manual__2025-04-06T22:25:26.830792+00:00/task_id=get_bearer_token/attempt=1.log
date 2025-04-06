@@ -1,0 +1,31 @@
+[2025-04-06T22:25:29.000+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-06T22:25:29.017+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: running_airbyte.get_bearer_token manual__2025-04-06T22:25:26.830792+00:00 [queued]>
+[2025-04-06T22:25:29.024+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: running_airbyte.get_bearer_token manual__2025-04-06T22:25:26.830792+00:00 [queued]>
+[2025-04-06T22:25:29.024+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-06T22:25:29.034+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpOperator): get_bearer_token> on 2025-04-06 22:25:26.830792+00:00
+[2025-04-06T22:25:29.045+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=526) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-06T22:25:29.046+0000] {standard_task_runner.py:72} INFO - Started process 530 to run task
+[2025-04-06T22:25:29.047+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'running_airbyte', 'get_bearer_token', 'manual__2025-04-06T22:25:26.830792+00:00', '--job-id', '116', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_dag.py', '--cfg-path', '/tmp/tmpaqt5_llo']
+[2025-04-06T22:25:29.048+0000] {standard_task_runner.py:105} INFO - Job 116: Subtask get_bearer_token
+[2025-04-06T22:25:29.085+0000] {task_command.py:467} INFO - Running <TaskInstance: running_airbyte.get_bearer_token manual__2025-04-06T22:25:26.830792+00:00 [running]> on host 929e032a3063
+[2025-04-06T22:25:29.149+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='running_airbyte' AIRFLOW_CTX_TASK_ID='get_bearer_token' AIRFLOW_CTX_EXECUTION_DATE='2025-04-06T22:25:26.830792+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-06T22:25:26.830792+00:00'
+[2025-04-06T22:25:29.151+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-06T22:25:29.151+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-06T22:25:29.151+0000] {logging_mixin.py:190} INFO - Current task name:get_bearer_token state:running start_date:2025-04-06 22:25:29.017331+00:00
+[2025-04-06T22:25:29.151+0000] {logging_mixin.py:190} INFO - Dag name:running_airbyte and current dag run status:running
+[2025-04-06T22:25:29.151+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-06T22:25:29.152+0000] {http.py:180} INFO - Calling HTTP method
+[2025-04-06T22:25:29.159+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-06T22:25:29.165+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-06T22:25:29.175+0000] {http.py:241} INFO - {"access_token":"eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhaXJieXRlLXNlcnZlciIsInN1YiI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImV4cCI6MTc0NDA2NDcyOSwicm9sZXMiOlsiQVVUSEVOVElDQVRFRF9VU0VSIiwiUkVBREVSIiwiRURJVE9SIiwiQURNSU4iLCJXT1JLU1BBQ0VfUkVBREVSIiwiV09SS1NQQUNFX1JVTk5FUiIsIldPUktTUEFDRV9FRElUT1IiLCJXT1JLU1BBQ0VfQURNSU4iLCJPUkdBTklaQVRJT05fTUVNQkVSIiwiT1JHQU5JWkFUSU9OX1JFQURFUiIsIk9SR0FOSVpBVElPTl9SVU5ORVIiLCJPUkdBTklaQVRJT05fRURJVE9SIiwiT1JHQU5JWkFUSU9OX0FETUlOIl19.o2mMK1CrP7pPye6e8HzRgSuWZWIW4dBO98CHYVqdMRQ"}
+[2025-04-06T22:25:29.195+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-06T22:25:29.195+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=running_airbyte, task_id=get_bearer_token, run_id=manual__2025-04-06T22:25:26.830792+00:00, execution_date=20250406T222526, start_date=20250406T222529, end_date=20250406T222529
+[2025-04-06T22:25:29.214+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-06T22:25:29.214+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-06T22:25:29.214+0000] {logging_mixin.py:190} INFO - Dag name:running_airbyte queued_at:2025-04-06 22:25:26.853868+00:00
+[2025-04-06T22:25:29.214+0000] {logging_mixin.py:190} INFO - Task hostname:929e032a3063 operator:HttpOperator
+[2025-04-06T22:25:29.260+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-06T22:25:29.290+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-06T22:25:29.291+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
