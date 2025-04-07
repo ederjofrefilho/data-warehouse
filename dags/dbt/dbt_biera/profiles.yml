@@ -1,0 +1,12 @@
+dbt_biera:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 192.168.1.130
+      user: admin
+      password: default
+      port: 5432
+      dbname: warehouse
+      schema: staging
+      threads: 4

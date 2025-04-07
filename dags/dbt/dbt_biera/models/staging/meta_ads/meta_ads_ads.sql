@@ -1,16 +1,12 @@
 with source as (
     select 
         id,
-        created_time,
+        adset_id,
         name,
-        status,
-        objective,
-        bid_strategy,
-        account_id,
-        start_time,
-        stop_time,
-        daily_budget,
-        lifetime_budget
+        created_time,
+        updated_time,
+        effective_status,
+        creative
     from
         {{ source ('warehouse', 'meta_ads_campaigns') }}
 ),

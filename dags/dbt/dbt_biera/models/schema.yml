@@ -5,6 +5,9 @@ sources:
     schema: source
 
     tables:
+
+    ## Meta-ads tables
+
       - name: meta_ads_campaigns
         description: "Tabela source das campanhas do meta ads"
         columns:
@@ -29,12 +32,57 @@ sources:
 
       - name: meta_ads_ad_sets
         description: "Tabela source dos conjuntos de anúncios do meta ads"
-
         columns:
           - name: account_id
-          - name: adlabels
           - name: bid_amount
-          - name: bid_
+          - name: bid_strategy
+          - name: budget_remaining
+          - name: campaign_id
+          - name: created_time
+          - name: daily_budget
+          - name: effective_status
+          - name: end_time
+          - name: id
+          - name: lifetime_budget
+          - name: name
+          - name: promoted_object
+          - name: start_time
+          - name: targeting
+          - name: updated_time
 
       - name: meta_ads_ads
+        description: "Tabela source dos anúncios do meta ads"
+        columns:
+          - name: account_id
+          - name: adset_id
+          - name: bid_amount
+          - name: bid_info
+          - name: bid_type
+          - name: campaign_id
+          - name: conversion_specs
+          - name: created_time
+          - name: creative
+          - name: effective_status
+          - name: id
+          - name: name
+          - name: source_ad_id
+          - name: updated_time
+
       - name: meta_ads_ad_creatives
+        description: "Tabela source dos criativos dos anúncios"
+        columns:
+          - name: account_id
+          - name: body
+          - name: call_to_action_type
+          - name: id
+          - name: image_url
+          - name: actor_id
+          - name: instagram_actor_id
+          - name: instagram_permalink_url
+          - name: name
+          - name: object_type
+          - name: object_url
+          - name: status
+          - name: title
+
+    ## TODO Hubspot Tables 
