@@ -1,78 +1,139 @@
-from airflow.decorators import dag
+"""
+### DAG de Pipeline ELT com Airbyte e dbt
+
+Este DAG automatiza o processo de:
+1. Acionar sincronização de dados do Meta Ads via Airbyte
+2. Monitorar conclusão da sincronização
+3. Executar transformações de dados com dbt
+
+**Recursos:**
+- Autenticação segura no Airbyte via variáveis
+- Tratamento robusto de erros
+- Monitoramento detalhado na UI
+- Configuração centralizada
+- Documentação integrada
+"""
+
+from datetime import datetime
+import os
+import base64
+import json
+
+from airflow.decorators import dag, task_group
 from airflow.models import Variable
 from airflow.providers.http.operators.http import HttpOperator
 from airflow.providers.http.sensors.http import HttpSensor
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig, ExecutionConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
-from pendulum import datetime
-import os
-import base64
-import json
+from pendulum import datetime as pendulum_datetime
 
-# Airbyte Connection
-AIRBYTE_CONNECTION_ID = Variable.get("AIRBYTE META ADS -> POSTGRES")
-AIRBYTE_ENDPOINT = "http://airbyte-server:8001/api/v1"
+# Region: Configurações Globais
+AIRBYTE_CONNECTION_ID = Variable.get("AIRBYTE_META_ADS_POSTGRES_CONNECTION_ID")
+AIRBYTE_USERNAME = Variable.get("AIRBYTE_USERNAME", default_var="airbyte")
+AIRBYTE_PASSWORD = Variable.get("AIRBYTE_PASSWORD")
 
-# dbt Settings
-CONNECTION_ID = "postgres_conn"
-DBT_PROJECT_PATH = f"{os.environ['AIRFLOW_HOME']}/dags/dbt/dbt_biera"
-DBT_EXECUTABLE_PATH = f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt"
+DBT_CONFIG = {
+    "project_path": f"{os.environ['AIRFLOW_HOME']}/dags/dbt/dbt_biera",
+    "executable_path": f"{os.environ['AIRFLOW_HOME']}/dbt_venv/bin/dbt",
+    "connection_id": "postgres_conn",
+    "target_schema": "staging",
+    "target_env": "dev"
+}
 
-def airbyte_auth_header():
-    username = "airbyte"
-    password = "password"  # Substitua pela sua senha
-    auth_str = f"{username}:{password}"
-    auth_bytes = auth_str.encode("utf-8")
-    base64_bytes = base64.b64encode(auth_bytes)
-    return {"Authorization": f"Basic {base64_bytes.decode('utf-8')}"}
+DEFAULT_ARGS = {
+    "owner": "admin",
+    "retries": 2,
+    "retry_delay": 30,
+    "start_date": pendulum_datetime(2024, 3, 1),
+    "depends_on_past": False
+}
+# EndRegion
 
-@dag(start_date=datetime(2025, 3, 26), schedule_interval="@daily", catchup=False)
-def running_airbyte():
+def generate_airbyte_auth() -> dict:
+    """
+    Gera header de autenticação para o Airbyte
+    Returns:
+        dict: Header de autenticação Basic Auth
+    """
+    auth_str = f"{AIRBYTE_USERNAME}:{AIRBYTE_PASSWORD}"
+    auth_b64 = base64.b64encode(auth_str.encode()).decode()
+    return {"Authorization": f"Basic {auth_b64}"}
 
-    # 1. Trigger Airbyte Sync (com tratamento correto da resposta)
-    trigger_sync = HttpOperator(
-        task_id="trigger_airbyte_sync",
-        http_conn_id="airbyte",
-        endpoint="/api/v1/connections/sync",
-        method="POST",
-        headers={
-            **airbyte_auth_header(),
-            "Content-Type": "application/json"
-        },
-        data=json.dumps({"connectionId": AIRBYTE_CONNECTION_ID}),
-        response_check=lambda response: "job" in response.json(),
-        response_filter=lambda response: response.json(),  # Armazena o JSON diretamente no XCom
-        log_response=True
-    )
+@dag(
+    schedule_interval="@daily",
+    start_date=DEFAULT_ARGS["start_date"],
+    catchup=False,
+    default_args=DEFAULT_ARGS,
+    max_active_runs=1,
+    tags=["elt", "airbyte", "dbt", "meta_ads"]
+)
+def meta_ads_elt_pipeline():
 
-    # 2. Sensor com template corrigido
-    wait_for_sync = HttpSensor(
-        task_id="wait_for_sync_completion",
-        http_conn_id="airbyte",
-        endpoint="/api/public/v1/jobs/{{ ti.xcom_pull(task_ids='trigger_airbyte_sync')['job']['id'] }}",  # Acesso direto ao dicionário
-        method="GET",
-        headers=airbyte_auth_header(),
-        response_check=lambda response: response.json()["status"] == "succeeded",
-        poke_interval=30,
-        timeout=3600,
-        mode="reschedule"
-    )
+    @task_group(group_id="airbyte_sync")
+    def airbyte_sync_group():
+        """Grupo de tarefas para execução da sincronização Airbyte"""
+        
+        # Tarefa para iniciar a sincronização
+        trigger_sync = HttpOperator(
+            task_id="trigger_connection_sync",
+            http_conn_id="airbyte",
+            endpoint="/api/v1/connections/sync",
+            method="POST",
+            headers={
+                **generate_airbyte_auth(),
+                "Content-Type": "application/json"
+            },
+            data=json.dumps({"connectionId": AIRBYTE_CONNECTION_ID}),
+            response_check=lambda response: (
+                response.json().get("job", {}).get("status") == "running"
+            ),
+            response_filter=lambda response: response.json(),
+            log_response=True
+        )
 
-    # 3. dbt Transformation
-    transform_data = DbtTaskGroup(
-        group_id="transform_data",
-        project_config=ProjectConfig(DBT_PROJECT_PATH),
-        profile_config=ProfileConfig(
-            profile_name="default",
-            target_name="dev",
-            profile_mapping=PostgresUserPasswordProfileMapping(
-                conn_id=CONNECTION_ID,
-                profile_args={"schema": "staging"}
-            )
-        ),
-        execution_config=ExecutionConfig(dbt_executable_path=DBT_EXECUTABLE_PATH)
-    )
+        # Sensor para monitorar conclusão
+        sync_monitor = HttpSensor(
+            task_id="monitor_sync_status",
+            http_conn_id="airbyte",
+            endpoint=(
+                "/api/public/v1/jobs/" 
+                "{{ ti.xcom_pull(task_ids='airbyte_sync.trigger_connection_sync', key='return_value')['job']['id'] }}"
+            ),
+            method="GET",
+            headers=generate_airbyte_auth(),
+            response_check=lambda response: response.json()["status"] == "succeeded",
+            poke_interval=60,
+            timeout=3600,
+            mode="reschedule"
+        )
 
-    trigger_sync >> wait_for_sync >> transform_data
+        trigger_sync >> sync_monitor
 
-running_airbyte_dag = running_airbyte()
+    @task_group(group_id="dbt_processing")
+    def dbt_transform_group():
+        """Grupo de tarefas para transformações dbt"""
+        
+        return DbtTaskGroup(
+            group_id="data_transformations",
+            project_config=ProjectConfig(DBT_CONFIG["project_path"]),
+            profile_config=ProfileConfig(
+                profile_name="default",
+                target_name=DBT_CONFIG["target_env"],
+                profile_mapping=PostgresUserPasswordProfileMapping(
+                    conn_id=DBT_CONFIG["connection_id"],
+                    profile_args={"schema": DBT_CONFIG["target_schema"]}
+                )
+            ),
+            execution_config=ExecutionConfig(
+                dbt_executable_path=DBT_CONFIG["executable_path"],
+            ),
+            operator_args={
+                "install_deps": True,
+                "full_refresh": True
+            }
+        )
+
+    # Orquestração do pipeline
+    airbyte_sync_group() >> dbt_transform_group()
+
+meta_ads_elt_dag = meta_ads_elt_pipeline()

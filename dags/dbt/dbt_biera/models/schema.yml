@@ -7,7 +7,6 @@ sources:
     tables:
       - name: meta_ads_campaigns
         description: "Tabela source das campanhas do meta ads"
-        
         columns:
           - name: id
           - name: name
@@ -28,3 +27,14 @@ sources:
           - name: _airbyte_gerenation_id
           - name: _airbyte_meta
 
+      - name: meta_ads_ad_sets
+        description: "Tabela source dos conjuntos de anúncios do meta ads"
+
+        columns:
+          - name: account_id
+          - name: adlabels
+          - name: bid_amount
+          - name: bid_
+
+      - name: meta_ads_ads
+      - name: meta_ads_ad_creatives
