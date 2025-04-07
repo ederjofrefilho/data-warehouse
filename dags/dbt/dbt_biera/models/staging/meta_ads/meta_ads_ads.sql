@@ -1,30 +1,33 @@
-with source as (
-    select 
-        id,
-        adset_id,
-        name,
-        created_time,
-        updated_time,
-        effective_status,
-        creative
-    from
-        {{ source ('warehouse', 'meta_ads_campaigns') }}
+WITH source AS (
+    SELECT
+        ads.id,
+        ads.adset_id,
+        ads.created_time,
+        ads.effective_status,
+        ads.updated_time,
+        creatives.image_url AS creative_url_image,
+        creatives.instagram_permalink_url AS Instagram_URL,
+        creatives.call_to_action_type AS call_to_action_type
+    FROM
+        {{ source('warehouse', 'meta_ads_ads') }} AS ads
+    LEFT JOIN
+        {{ source('warehouse', 'meta_ads_ad_creatives') }} AS creatives
+    ON 
+        (ads.creative::json->>'id') = creatives.id
 ),
 
-renamed as (
-    select 
-        account_id as "Account_ID",
-        id as "Campaign_ID",
-        name as "Campaign_Name",
-        status as "Campaign_Status",
-        objective as "Campaign_Objective",
-        bid_strategy as "Campaign_Bid_Strategy",
-        daily_budget as "Daily_Budget",
-        lifetime_budget as "Lifetime_Budget",
-        start_time as "Start_Time",
-        stop_time as "Stop_Time"
-    from 
+renamed AS (
+    SELECT 
+        id AS "Ad_ID",           
+        adset_id AS "Adset_ID",
+        created_time AS "Created_At",
+        updated_time AS "Updated_At",
+        effective_status AS "Status",
+        call_to_action_type AS "Call_To_Action",
+        creative_url_image AS "Image_URL",
+        Instagram_URL
+    FROM 
         source
 )
 
-select * from renamed
+SELECT * FROM renamed
