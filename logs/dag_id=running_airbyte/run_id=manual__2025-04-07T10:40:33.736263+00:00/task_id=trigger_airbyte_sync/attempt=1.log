@@ -1,0 +1,109 @@
+[2025-04-07T10:40:35.046+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-07T10:40:35.062+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: running_airbyte.trigger_airbyte_sync manual__2025-04-07T10:40:33.736263+00:00 [queued]>
+[2025-04-07T10:40:35.068+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: running_airbyte.trigger_airbyte_sync manual__2025-04-07T10:40:33.736263+00:00 [queued]>
+[2025-04-07T10:40:35.068+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-07T10:40:35.077+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpOperator): trigger_airbyte_sync> on 2025-04-07 10:40:33.736263+00:00
+[2025-04-07T10:40:35.089+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=991) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-07T10:40:35.090+0000] {standard_task_runner.py:72} INFO - Started process 993 to run task
+[2025-04-07T10:40:35.093+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'running_airbyte', 'trigger_airbyte_sync', 'manual__2025-04-07T10:40:33.736263+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_dag.py', '--cfg-path', '/tmp/tmpw0yinby1']
+[2025-04-07T10:40:35.094+0000] {standard_task_runner.py:105} INFO - Job 83: Subtask trigger_airbyte_sync
+[2025-04-07T10:40:35.144+0000] {task_command.py:467} INFO - Running <TaskInstance: running_airbyte.trigger_airbyte_sync manual__2025-04-07T10:40:33.736263+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-07T10:40:35.212+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='running_airbyte' AIRFLOW_CTX_TASK_ID='trigger_airbyte_sync' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T10:40:33.736263+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-07T10:40:33.736263+00:00'
+[2025-04-07T10:40:35.214+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-07T10:40:35.214+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-07T10:40:35.214+0000] {logging_mixin.py:190} INFO - Current task name:trigger_airbyte_sync state:running start_date:2025-04-07 10:40:35.063095+00:00
+[2025-04-07T10:40:35.214+0000] {logging_mixin.py:190} INFO - Dag name:running_airbyte and current dag run status:running
+[2025-04-07T10:40:35.215+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-07T10:40:35.215+0000] {http.py:180} INFO - Calling HTTP method
+[2025-04-07T10:40:35.222+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-07T10:40:35.230+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-07T10:40:35.664+0000] {http.py:241} INFO - {"job":{"id":187,"configType":"sync","configId":"29c579af-667a-4bca-a9ab-12f750e68c02","enabledStreams":[{"name":"campaigns"},{"name":"ad_sets"},{"name":"ad_creatives"},{"name":"ads"}],"createdAt":1744022435,"updatedAt":1744022435,"status":"running","streamAggregatedStats":[]},"attempts":[{"attempt":{"id":0,"status":"running","createdAt":1744022435,"updatedAt":1744022435},"logType":"formatted","logs":{"events":[],"logLines":[]}}]}
+[2025-04-07T10:40:35.673+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 177, in execute
+    return self.execute_sync(context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 199, in execute_sync
+    return self.process_response(context=context, response=response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 245, in process_response
+    raise AirflowException("Response check returned False.")
+airflow.exceptions.AirflowException: Response check returned False.
+[2025-04-07T10:40:35.676+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-04-07T10:40:35.677+0000] {logging_mixin.py:190} INFO - Task start:2025-04-07 10:40:35.063095+00:00 end:2025-04-07 10:40:35.676407+00:00 duration:0.613312
+[2025-04-07T10:40:35.677+0000] {logging_mixin.py:190} INFO - Task:<Task(HttpOperator): trigger_airbyte_sync> dag:<DAG: running_airbyte> dagrun:<DagRun running_airbyte @ 2025-04-07 10:40:33.736263+00:00: manual__2025-04-07T10:40:33.736263+00:00, state:running, queued_at: 2025-04-07 10:40:33.754666+00:00. externally triggered: True>
+[2025-04-07T10:40:35.677+0000] {logging_mixin.py:190} INFO - Failure caused by Response check returned False.
+[2025-04-07T10:40:35.677+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=running_airbyte, task_id=trigger_airbyte_sync, run_id=manual__2025-04-07T10:40:33.736263+00:00, execution_date=20250407T104033, start_date=20250407T104035, end_date=20250407T104035
+[2025-04-07T10:40:35.705+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-07T10:40:35.706+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 83 for task trigger_airbyte_sync (Response check returned False.; 993)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 177, in execute
+    return self.execute_sync(context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 199, in execute_sync
+    return self.process_response(context=context, response=response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 245, in process_response
+    raise AirflowException("Response check returned False.")
+airflow.exceptions.AirflowException: Response check returned False.
+[2025-04-07T10:40:35.745+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-07T10:40:35.787+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-07T10:40:35.791+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

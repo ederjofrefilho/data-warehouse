@@ -1,0 +1,31 @@
+[2025-04-07T11:03:28.163+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-07T11:03:28.179+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: running_airbyte.trigger_airbyte_sync manual__2025-04-07T11:03:26.371738+00:00 [queued]>
+[2025-04-07T11:03:28.185+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: running_airbyte.trigger_airbyte_sync manual__2025-04-07T11:03:26.371738+00:00 [queued]>
+[2025-04-07T11:03:28.185+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-04-07T11:03:28.195+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpOperator): trigger_airbyte_sync> on 2025-04-07 11:03:26.371738+00:00
+[2025-04-07T11:03:28.209+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2012) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-07T11:03:28.211+0000] {standard_task_runner.py:72} INFO - Started process 2014 to run task
+[2025-04-07T11:03:28.212+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'running_airbyte', 'trigger_airbyte_sync', 'manual__2025-04-07T11:03:26.371738+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_dag.py', '--cfg-path', '/tmp/tmpiah_zgso']
+[2025-04-07T11:03:28.214+0000] {standard_task_runner.py:105} INFO - Job 88: Subtask trigger_airbyte_sync
+[2025-04-07T11:03:28.257+0000] {task_command.py:467} INFO - Running <TaskInstance: running_airbyte.trigger_airbyte_sync manual__2025-04-07T11:03:26.371738+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-07T11:03:28.326+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='running_airbyte' AIRFLOW_CTX_TASK_ID='trigger_airbyte_sync' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T11:03:26.371738+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-07T11:03:26.371738+00:00'
+[2025-04-07T11:03:28.328+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-07T11:03:28.328+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-07T11:03:28.328+0000] {logging_mixin.py:190} INFO - Current task name:trigger_airbyte_sync state:running start_date:2025-04-07 11:03:28.179924+00:00
+[2025-04-07T11:03:28.328+0000] {logging_mixin.py:190} INFO - Dag name:running_airbyte and current dag run status:running
+[2025-04-07T11:03:28.329+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-07T11:03:28.329+0000] {http.py:180} INFO - Calling HTTP method
+[2025-04-07T11:03:28.337+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-07T11:03:28.345+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-07T11:03:28.751+0000] {http.py:241} INFO - {"job":{"id":193,"configType":"sync","configId":"29c579af-667a-4bca-a9ab-12f750e68c02","enabledStreams":[{"name":"campaigns"},{"name":"ad_sets"},{"name":"ad_creatives"},{"name":"ads"}],"createdAt":1744023808,"updatedAt":1744023808,"status":"running","streamAggregatedStats":[]},"attempts":[{"attempt":{"id":0,"status":"running","createdAt":1744023808,"updatedAt":1744023808},"logType":"formatted","logs":{"events":[],"logLines":[]}}]}
+[2025-04-07T11:03:28.775+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-07T11:03:28.776+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=running_airbyte, task_id=trigger_airbyte_sync, run_id=manual__2025-04-07T11:03:26.371738+00:00, execution_date=20250407T110326, start_date=20250407T110328, end_date=20250407T110328
+[2025-04-07T11:03:28.799+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-07T11:03:28.799+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-07T11:03:28.800+0000] {logging_mixin.py:190} INFO - Dag name:running_airbyte queued_at:2025-04-07 11:03:26.387116+00:00
+[2025-04-07T11:03:28.800+0000] {logging_mixin.py:190} INFO - Task hostname:ffa99f2ae5fe operator:HttpOperator
+[2025-04-07T11:03:28.825+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-07T11:03:28.869+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-07T11:03:28.871+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
