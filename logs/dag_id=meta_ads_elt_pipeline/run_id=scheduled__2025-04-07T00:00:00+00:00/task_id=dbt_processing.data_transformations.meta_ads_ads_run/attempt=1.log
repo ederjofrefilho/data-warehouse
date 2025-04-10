@@ -1,0 +1,65 @@
+[2025-04-08T10:59:12.909+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-08T10:59:12.929+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_ads_run scheduled__2025-04-07T00:00:00+00:00 [queued]>
+[2025-04-08T10:59:12.939+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_ads_run scheduled__2025-04-07T00:00:00+00:00 [queued]>
+[2025-04-08T10:59:12.940+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-04-08T10:59:12.951+0000] {taskinstance.py:2890} INFO - Executing <Task(DbtRunLocalOperator): dbt_processing.data_transformations.meta_ads_ads_run> on 2025-04-07 00:00:00+00:00
+[2025-04-08T10:59:12.965+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=607) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-08T10:59:12.967+0000] {standard_task_runner.py:72} INFO - Started process 615 to run task
+[2025-04-08T10:59:12.967+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'dbt_processing.data_transformations.meta_ads_ads_run', 'scheduled__2025-04-07T00:00:00+00:00', '--job-id', '301', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_elt_pipeline.py', '--cfg-path', '/tmp/tmpgs2gikrp']
+[2025-04-08T10:59:12.968+0000] {standard_task_runner.py:105} INFO - Job 301: Subtask dbt_processing.data_transformations.meta_ads_ads_run
+[2025-04-08T10:59:13.024+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_ads_run scheduled__2025-04-07T00:00:00+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-08T10:59:13.094+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_processing.data_transformations.meta_ads_ads_run' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-07T00:00:00+00:00'
+[2025-04-08T10:59:13.096+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-08T10:59:13.096+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-08T10:59:13.096+0000] {logging_mixin.py:190} INFO - Current task name:dbt_processing.data_transformations.meta_ads_ads_run state:running start_date:2025-04-08 10:59:12.929977+00:00
+[2025-04-08T10:59:13.096+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-08T10:59:13.097+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-08T10:59:14.317+0000] {local.py:213} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-04-08T10:59:14.318+0000] {local.py:416} INFO - Cloning project to writable temp directory /tmp/tmpmg133bqt from /opt/airflow/dags/dbt/dbt_biera
+[2025-04-08T10:59:14.319+0000] {local.py:427} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/meta_ads_elt_pipeline__dbt_processing__data_transformations/target/partial_parse.msgpack
+[2025-04-08T10:59:14.326+0000] {config.py:360} INFO - Profile caching is enable.
+[2025-04-08T10:59:14.333+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-08T10:59:14.335+0000] {config.py:340} INFO - Profile found in cache using profile: /tmp/cosmos/profile/c99bf486c96f06e0233408d45300d7cde96c22a7e21e1f49350115e2a86b810b/profiles.yml.
+[2025-04-08T10:59:14.335+0000] {runner.py:60} INFO - Trying to run dbtRunner with:
+ ['run', '--models', 'meta_ads_ads', '--full-refresh', '--project-dir', '/tmp/tmpmg133bqt', '--profiles-dir', '/tmp/cosmos/profile/c99bf486c96f06e0233408d45300d7cde96c22a7e21e1f49350115e2a86b810b', '--profile', 'default', '--target', 'dev']
+ in /tmp/tmpmg133bqt
+[2025-04-08T10:59:14.408+0000] {logging_mixin.py:190} INFO - 10:59:14  Running with dbt=1.9.3
+[2025-04-08T10:59:14.671+0000] {logging_mixin.py:190} INFO - 10:59:14  Registered adapter: postgres=1.9.0
+[2025-04-08T10:59:15.405+0000] {logging_mixin.py:190} INFO - 10:59:15  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_biera.analytics
+[2025-04-08T10:59:15.800+0000] {logging_mixin.py:190} INFO - 10:59:15  Found 3 models, 4 sources, 434 macros
+[2025-04-08T10:59:15.803+0000] {logging_mixin.py:190} INFO - 10:59:15
+[2025-04-08T10:59:15.803+0000] {logging_mixin.py:190} INFO - 10:59:15  Concurrency: 1 threads (target='dev')
+[2025-04-08T10:59:15.804+0000] {logging_mixin.py:190} INFO - 10:59:15
+[2025-04-08T10:59:15.901+0000] {logging_mixin.py:190} INFO - 10:59:15  1 of 1 START sql view model staging.meta_ads_ads ............................... [RUN]
+[2025-04-08T10:59:16.007+0000] {logging_mixin.py:190} INFO - 10:59:16  1 of 1 OK created sql view model staging.meta_ads_ads .......................... [CREATE VIEW in 0.10s]
+[2025-04-08T10:59:16.024+0000] {logging_mixin.py:190} INFO - 10:59:16
+[2025-04-08T10:59:16.026+0000] {logging_mixin.py:190} INFO - 10:59:16  Finished running 1 view model in 0 hours 0 minutes and 0.22 seconds (0.22s).
+[2025-04-08T10:59:16.076+0000] {logging_mixin.py:190} INFO - 10:59:16
+[2025-04-08T10:59:16.077+0000] {logging_mixin.py:190} INFO - 10:59:16  Completed successfully
+[2025-04-08T10:59:16.077+0000] {logging_mixin.py:190} INFO - 10:59:16
+[2025-04-08T10:59:16.078+0000] {logging_mixin.py:190} INFO - 10:59:16  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-04-08T10:59:16.691+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/cosmos/operators/local.py:616: UserWarning: The dataset URI postgres://postgres:5432/warehouse.source.meta_ads_ad_creatives is not AIP-60 compliant: URI format postgres:// must contain database, schema, and table names. In Airflow 3, this will raise an exception.
+  datasets = [Dataset(uri) for uri in uris]
+
+[2025-04-08T10:59:16.692+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/cosmos/operators/local.py:616: UserWarning: The dataset URI postgres://postgres:5432/warehouse.source.meta_ads_ads is not AIP-60 compliant: URI format postgres:// must contain database, schema, and table names. In Airflow 3, this will raise an exception.
+  datasets = [Dataset(uri) for uri in uris]
+
+[2025-04-08T10:59:16.692+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/cosmos/operators/local.py:616: UserWarning: The dataset URI postgres://postgres:5432/warehouse.staging.meta_ads_ads is not AIP-60 compliant: URI format postgres:// must contain database, schema, and table names. In Airflow 3, this will raise an exception.
+  datasets = [Dataset(uri) for uri in uris]
+
+[2025-04-08T10:59:16.693+0000] {local.py:465} INFO - Inlets: [Dataset(uri='postgres://postgres:5432/warehouse.source.meta_ads_ad_creatives', extra=None), Dataset(uri='postgres://postgres:5432/warehouse.source.meta_ads_ads', extra=None)]
+[2025-04-08T10:59:16.693+0000] {local.py:466} INFO - Outlets: [Dataset(uri='postgres://postgres:5432/warehouse.staging.meta_ads_ads', extra=None)]
+[2025-04-08T10:59:16.694+0000] {local.py:656} INFO - Assigning inlets/outlets with DatasetAlias
+[2025-04-08T10:59:16.734+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-08T10:59:16.735+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=meta_ads_elt_pipeline, task_id=dbt_processing.data_transformations.meta_ads_ads_run, run_id=scheduled__2025-04-07T00:00:00+00:00, execution_date=20250407T000000, start_date=20250408T105912, end_date=20250408T105916
+[2025-04-08T10:59:16.740+0000] {taskinstance.py:3064} INFO - Creating event for DatasetModel(uri='postgres://postgres:5432/warehouse.staging.meta_ads_ads', extra={}) through aliases "meta_ads_elt_pipeline__data_transformations__meta_ads_ads_run"
+[2025-04-08T10:59:16.782+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-08T10:59:16.782+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-08T10:59:16.782+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline queued_at:2025-04-08 10:58:03.983530+00:00
+[2025-04-08T10:59:16.782+0000] {logging_mixin.py:190} INFO - Task hostname:ffa99f2ae5fe operator:DbtRunLocalOperator
+[2025-04-08T10:59:16.828+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-08T10:59:16.835+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

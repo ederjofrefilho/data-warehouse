@@ -85,4 +85,20 @@ sources:
           - name: status
           - name: title
 
+      - name: meta_ads_desempenho
+        description: "Tabela source de desempenho dos anúncios"
+        columns:
+          - name: "Day"
+          - name: "Ad_ID"
+          - name: "Leads"
+          - name: "Reach"
+          - name: "Results"
+          - name: "Ad_Set_ID"
+          - name: "Target_ID" 
+          - name: "Campaign_ID"
+          - name: "Impressions"
+          - name: "Link_Clicks"
+          - name: "Amount_Spent"
+          - name: "Clicks__All_"
+
     ## TODO Hubspot Tables 

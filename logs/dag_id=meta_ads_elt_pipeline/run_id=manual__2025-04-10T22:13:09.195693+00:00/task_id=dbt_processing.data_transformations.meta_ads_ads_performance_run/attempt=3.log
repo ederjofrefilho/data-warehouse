@@ -1,0 +1,163 @@
+[2025-04-10T22:17:51.675+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T22:17:51.693+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_ads_performance_run manual__2025-04-10T22:13:09.195693+00:00 [queued]>
+[2025-04-10T22:17:51.700+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_ads_performance_run manual__2025-04-10T22:13:09.195693+00:00 [queued]>
+[2025-04-10T22:17:51.700+0000] {taskinstance.py:2867} INFO - Starting attempt 3 of 3
+[2025-04-10T22:17:51.709+0000] {taskinstance.py:2890} INFO - Executing <Task(DbtRunLocalOperator): dbt_processing.data_transformations.meta_ads_ads_performance_run> on 2025-04-10 22:13:09.195693+00:00
+[2025-04-10T22:17:51.720+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1815) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-10T22:17:51.722+0000] {standard_task_runner.py:72} INFO - Started process 1817 to run task
+[2025-04-10T22:17:51.723+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'dbt_processing.data_transformations.meta_ads_ads_performance_run', 'manual__2025-04-10T22:13:09.195693+00:00', '--job-id', '420', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_elt_pipeline.py', '--cfg-path', '/tmp/tmpixczdx4e']
+[2025-04-10T22:17:51.724+0000] {standard_task_runner.py:105} INFO - Job 420: Subtask dbt_processing.data_transformations.meta_ads_ads_performance_run
+[2025-04-10T22:17:51.771+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_ads_performance_run manual__2025-04-10T22:13:09.195693+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-10T22:17:51.839+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_processing.data_transformations.meta_ads_ads_performance_run' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T22:13:09.195693+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-10T22:13:09.195693+00:00'
+[2025-04-10T22:17:51.841+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-10T22:17:51.841+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-10T22:17:51.841+0000] {logging_mixin.py:190} INFO - Current task name:dbt_processing.data_transformations.meta_ads_ads_performance_run state:running start_date:2025-04-10 22:17:51.693777+00:00
+[2025-04-10T22:17:51.841+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-10T22:17:51.842+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-10T22:17:52.861+0000] {local.py:213} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-04-10T22:17:52.862+0000] {local.py:416} INFO - Cloning project to writable temp directory /tmp/tmph0xo0o2a from /opt/airflow/dags/dbt/dbt_biera
+[2025-04-10T22:17:52.863+0000] {local.py:427} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/meta_ads_elt_pipeline__dbt_processing__data_transformations/target/partial_parse.msgpack
+[2025-04-10T22:17:52.869+0000] {config.py:360} INFO - Profile caching is enable.
+[2025-04-10T22:17:52.879+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-10T22:17:52.880+0000] {config.py:340} INFO - Profile found in cache using profile: /tmp/cosmos/profile/c99bf486c96f06e0233408d45300d7cde96c22a7e21e1f49350115e2a86b810b/profiles.yml.
+[2025-04-10T22:17:52.880+0000] {runner.py:60} INFO - Trying to run dbtRunner with:
+ ['run', '--models', 'meta_ads_ads_performance', '--full-refresh', '--project-dir', '/tmp/tmph0xo0o2a', '--profiles-dir', '/tmp/cosmos/profile/c99bf486c96f06e0233408d45300d7cde96c22a7e21e1f49350115e2a86b810b', '--profile', 'default', '--target', 'dev']
+ in /tmp/tmph0xo0o2a
+[2025-04-10T22:17:52.946+0000] {logging_mixin.py:190} INFO - 22:17:52  Running with dbt=1.9.3
+[2025-04-10T22:17:53.170+0000] {logging_mixin.py:190} INFO - 22:17:53  Registered adapter: postgres=1.9.0
+[2025-04-10T22:17:53.810+0000] {logging_mixin.py:190} INFO - 22:17:53  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_biera.analytics
+[2025-04-10T22:17:54.131+0000] {logging_mixin.py:190} INFO - 22:17:54  Found 4 models, 5 sources, 434 macros
+[2025-04-10T22:17:54.133+0000] {logging_mixin.py:190} INFO - 22:17:54
+[2025-04-10T22:17:54.133+0000] {logging_mixin.py:190} INFO - 22:17:54  Concurrency: 1 threads (target='dev')
+[2025-04-10T22:17:54.134+0000] {logging_mixin.py:190} INFO - 22:17:54
+[2025-04-10T22:17:54.256+0000] {logging_mixin.py:190} INFO - 22:17:54  1 of 1 START sql view model staging.meta_ads_ads_performance ................... [RUN]
+[2025-04-10T22:17:54.317+0000] {logging_mixin.py:190} INFO - 22:17:54  1 of 1 ERROR creating sql view model staging.meta_ads_ads_performance .......... [ERROR in 0.06s]
+[2025-04-10T22:17:54.330+0000] {logging_mixin.py:190} INFO - 22:17:54
+[2025-04-10T22:17:54.331+0000] {logging_mixin.py:190} INFO - 22:17:54  Finished running 1 view model in 0 hours 0 minutes and 0.20 seconds (0.20s).
+[2025-04-10T22:17:54.358+0000] {logging_mixin.py:190} INFO - 22:17:54
+[2025-04-10T22:17:54.359+0000] {logging_mixin.py:190} INFO - 22:17:54  Completed with 1 error, 0 partial successes, and 0 warnings:
+[2025-04-10T22:17:54.359+0000] {logging_mixin.py:190} INFO - 22:17:54
+[2025-04-10T22:17:54.360+0000] {logging_mixin.py:190} INFO - 22:17:54    Database Error in model meta_ads_ads_performance (models/staging/meta_ads/meta_ads_ads_performance.sql)
+  column "day" does not exist
+  LINE 9:         day,
+                  ^
+  HINT:  Perhaps you meant to reference the column "meta_ads_desempenho.Day".
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_ads_performance.sql
+[2025-04-10T22:17:54.360+0000] {logging_mixin.py:190} INFO - 22:17:54
+[2025-04-10T22:17:54.361+0000] {logging_mixin.py:190} INFO - 22:17:54  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2025-04-10T22:17:54.988+0000] {local.py:465} INFO - Inlets: []
+[2025-04-10T22:17:54.989+0000] {local.py:466} INFO - Outlets: []
+[2025-04-10T22:17:54.989+0000] {local.py:656} INFO - Assigning inlets/outlets with DatasetAlias
+[2025-04-10T22:17:55.009+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/base.py", line 299, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 708, in build_and_run_cmd
+    result = self.run_command(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 556, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 227, in handle_exception_dbt_runner
+    return dbt_runner.handle_exception_if_needed(result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/dbt/runner.py", line 113, in handle_exception_if_needed
+    raise CosmosDbtRunError(f"dbt invocation completed with errors: {error_message}")
+cosmos.exceptions.CosmosDbtRunError: dbt invocation completed with errors: meta_ads_ads_performance: Database Error in model meta_ads_ads_performance (models/staging/meta_ads/meta_ads_ads_performance.sql)
+  column "day" does not exist
+  LINE 9:         day,
+                  ^
+  HINT:  Perhaps you meant to reference the column "meta_ads_desempenho.Day".
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_ads_performance.sql
+[2025-04-10T22:17:55.020+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-04-10T22:17:55.020+0000] {logging_mixin.py:190} INFO - Task start:2025-04-10 22:17:51.693777+00:00 end:2025-04-10 22:17:55.019621+00:00 duration:3.325844
+[2025-04-10T22:17:55.020+0000] {logging_mixin.py:190} INFO - Task:<Task(DbtRunLocalOperator): dbt_processing.data_transformations.meta_ads_ads_performance_run> dag:<DAG: meta_ads_elt_pipeline> dagrun:<DagRun meta_ads_elt_pipeline @ 2025-04-10 22:13:09.195693+00:00: manual__2025-04-10T22:13:09.195693+00:00, state:running, queued_at: 2025-04-10 22:13:09.216082+00:00. externally triggered: True>
+[2025-04-10T22:17:55.021+0000] {logging_mixin.py:190} INFO - Failure caused by dbt invocation completed with errors: meta_ads_ads_performance: Database Error in model meta_ads_ads_performance (models/staging/meta_ads/meta_ads_ads_performance.sql)
+  column "day" does not exist
+  LINE 9:         day,
+                  ^
+  HINT:  Perhaps you meant to reference the column "meta_ads_desempenho.Day".
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_ads_performance.sql
+[2025-04-10T22:17:55.021+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=meta_ads_elt_pipeline, task_id=dbt_processing.data_transformations.meta_ads_ads_performance_run, run_id=manual__2025-04-10T22:13:09.195693+00:00, execution_date=20250410T221309, start_date=20250410T221751, end_date=20250410T221755
+[2025-04-10T22:17:55.053+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-10T22:17:55.053+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 420 for task dbt_processing.data_transformations.meta_ads_ads_performance_run (dbt invocation completed with errors: meta_ads_ads_performance: Database Error in model meta_ads_ads_performance (models/staging/meta_ads/meta_ads_ads_performance.sql)
+  column "day" does not exist
+  LINE 9:         day,
+                  ^
+  HINT:  Perhaps you meant to reference the column "meta_ads_desempenho.Day".
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_ads_performance.sql; 1817)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/base.py", line 299, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 708, in build_and_run_cmd
+    result = self.run_command(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 556, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 227, in handle_exception_dbt_runner
+    return dbt_runner.handle_exception_if_needed(result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/dbt/runner.py", line 113, in handle_exception_if_needed
+    raise CosmosDbtRunError(f"dbt invocation completed with errors: {error_message}")
+cosmos.exceptions.CosmosDbtRunError: dbt invocation completed with errors: meta_ads_ads_performance: Database Error in model meta_ads_ads_performance (models/staging/meta_ads/meta_ads_ads_performance.sql)
+  column "day" does not exist
+  LINE 9:         day,
+                  ^
+  HINT:  Perhaps you meant to reference the column "meta_ads_desempenho.Day".
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_ads_performance.sql
+[2025-04-10T22:17:55.102+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-10T22:17:55.124+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T22:17:55.128+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

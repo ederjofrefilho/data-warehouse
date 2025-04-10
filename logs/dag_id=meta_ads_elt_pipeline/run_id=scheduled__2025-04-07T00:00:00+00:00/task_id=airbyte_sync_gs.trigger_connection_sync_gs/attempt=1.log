@@ -1,0 +1,204 @@
+[2025-04-08T10:36:08.305+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-08T10:36:08.323+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [queued]>
+[2025-04-08T10:36:08.330+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [queued]>
+[2025-04-08T10:36:08.330+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-04-08T10:36:08.347+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpOperator): airbyte_sync_gs.trigger_connection_sync_gs> on 2025-04-07 00:00:00+00:00
+[2025-04-08T10:36:08.370+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1955) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-08T10:36:08.371+0000] {standard_task_runner.py:72} INFO - Started process 1965 to run task
+[2025-04-08T10:36:08.373+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'airbyte_sync_gs.trigger_connection_sync_gs', 'scheduled__2025-04-07T00:00:00+00:00', '--job-id', '256', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_elt_pipeline.py', '--cfg-path', '/tmp/tmp65vge155']
+[2025-04-08T10:36:08.374+0000] {standard_task_runner.py:105} INFO - Job 256: Subtask airbyte_sync_gs.trigger_connection_sync_gs
+[2025-04-08T10:36:08.440+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-08T10:36:08.542+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='airbyte_sync_gs.trigger_connection_sync_gs' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-07T00:00:00+00:00'
+[2025-04-08T10:36:08.544+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-08T10:36:08.545+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-08T10:36:08.545+0000] {logging_mixin.py:190} INFO - Current task name:airbyte_sync_gs.trigger_connection_sync_gs state:running start_date:2025-04-08 10:36:08.324131+00:00
+[2025-04-08T10:36:08.545+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-08T10:36:08.545+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-08T10:36:08.545+0000] {http.py:180} INFO - Calling HTTP method
+[2025-04-08T10:36:08.556+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-08T10:36:08.566+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-08T10:36:24.794+0000] {job.py:229} INFO - Heartbeat recovered after 10.86 seconds
+[2025-04-08T10:36:40.297+0000] {job.py:229} INFO - Heartbeat recovered after 15.62 seconds
+[2025-04-08T10:36:52.600+0000] {job.py:229} INFO - Heartbeat recovered after 13.79 seconds
+[2025-04-08T10:37:49.195+0000] {job.py:229} INFO - Heartbeat recovered after 11.80 seconds
+[2025-04-08T10:38:06.661+0000] {job.py:229} INFO - Heartbeat recovered after 10.82 seconds
+[2025-04-08T10:38:21.564+0000] {job.py:229} INFO - Heartbeat recovered after 15.01 seconds
+[2025-04-08T10:38:44.759+0000] {job.py:229} INFO - Heartbeat recovered after 23.24 seconds
+[2025-04-08T10:39:35.059+0000] {job.py:229} INFO - Heartbeat recovered after 50.74 seconds
+[2025-04-08T10:40:01.858+0000] {job.py:229} INFO - Heartbeat recovered after 26.97 seconds
+[2025-04-08T10:40:52.339+0000] {job.py:229} INFO - Heartbeat recovered after 52.68 seconds
+[2025-04-08T10:41:12.041+0000] {http.py:278} ERROR - HTTP error: Bad Gateway
+[2025-04-08T10:41:13.788+0000] {http.py:279} ERROR - <!DOCTYPE html>
+<html>
+<head>
+<title>Error</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>An error occurred.</h1>
+<p>Sorry, the page you are looking for is currently unavailable.<br/>
+Please try again later.</p>
+<p>If you are the system administrator of this resource then you should check
+the error log for details.</p>
+<p><em>Faithfully yours, nginx.</em></p>
+</body>
+</html>
+
+[2025-04-08T10:41:44.239+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 276, in check_response
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://192.168.1.130:8000/api/v1/connections/sync
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 177, in execute
+    return self.execute_sync(context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 191, in execute_sync
+    response = self.hook.run(
+               ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 265, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 318, in run_and_check
+    self.check_response(response)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 280, in check_response
+    raise AirflowException(str(response.status_code) + ":" + response.reason)
+airflow.exceptions.AirflowException: 502:Bad Gateway
+[2025-04-08T10:41:47.350+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-04-08T10:41:47.428+0000] {logging_mixin.py:190} INFO - Task start:2025-04-08 10:36:08.324131+00:00 end:2025-04-08 10:41:47.212044+00:00 duration:338.887913
+[2025-04-08T10:41:47.429+0000] {logging_mixin.py:190} INFO - Task:<Task(HttpOperator): airbyte_sync_gs.trigger_connection_sync_gs> dag:<DAG: meta_ads_elt_pipeline> dagrun:<DagRun meta_ads_elt_pipeline @ 2025-04-07 00:00:00+00:00: scheduled__2025-04-07T00:00:00+00:00, state:running, queued_at: 2025-04-08 10:36:01.367116+00:00. externally triggered: False>
+[2025-04-08T10:41:47.429+0000] {logging_mixin.py:190} INFO - Failure caused by 502:Bad Gateway
+[2025-04-08T10:41:47.429+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=meta_ads_elt_pipeline, task_id=airbyte_sync_gs.trigger_connection_sync_gs, run_id=scheduled__2025-04-07T00:00:00+00:00, execution_date=20250407T000000, start_date=20250408T103608, end_date=20250408T104147
+[2025-04-08T10:41:53.329+0000] {job.py:229} INFO - Heartbeat recovered after 63.68 seconds
+[2025-04-08T10:42:42.057+0000] {job.py:229} INFO - Heartbeat recovered after 51.54 seconds
+[2025-04-08T10:42:59.234+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-08T10:42:59.751+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 256 for task airbyte_sync_gs.trigger_connection_sync_gs (502:Bad Gateway; 1965)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 276, in check_response
+    response.raise_for_status()
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: http://192.168.1.130:8000/api/v1/connections/sync
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 177, in execute
+    return self.execute_sync(context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/operators/http.py", line 191, in execute_sync
+    response = self.hook.run(
+               ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 265, in run
+    return self.run_and_check(session, prepped_request, extra_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 318, in run_and_check
+    self.check_response(response)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/http/hooks/http.py", line 280, in check_response
+    raise AirflowException(str(response.status_code) + ":" + response.reason)
+airflow.exceptions.AirflowException: 502:Bad Gateway
+[2025-04-08T10:43:08.846+0000] {job.py:229} INFO - Heartbeat recovered after 27.85 seconds
+[2025-04-08T10:43:22.140+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-08T10:43:22.661+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics
+[2025-04-08T10:43:38.317+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-08T10:58:05.347+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-08T10:58:05.362+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [queued]>
+[2025-04-08T10:58:05.367+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [queued]>
+[2025-04-08T10:58:05.368+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-04-08T10:58:05.378+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpOperator): airbyte_sync_gs.trigger_connection_sync_gs> on 2025-04-07 00:00:00+00:00
+[2025-04-08T10:58:05.392+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=535) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-08T10:58:05.393+0000] {standard_task_runner.py:72} INFO - Started process 539 to run task
+[2025-04-08T10:58:05.395+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'airbyte_sync_gs.trigger_connection_sync_gs', 'scheduled__2025-04-07T00:00:00+00:00', '--job-id', '294', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_elt_pipeline.py', '--cfg-path', '/tmp/tmpeyulbb3w']
+[2025-04-08T10:58:05.396+0000] {standard_task_runner.py:105} INFO - Job 294: Subtask airbyte_sync_gs.trigger_connection_sync_gs
+[2025-04-08T10:58:05.440+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-08T10:58:05.506+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='airbyte_sync_gs.trigger_connection_sync_gs' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-07T00:00:00+00:00'
+[2025-04-08T10:58:05.508+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-08T10:58:05.508+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-08T10:58:05.508+0000] {logging_mixin.py:190} INFO - Current task name:airbyte_sync_gs.trigger_connection_sync_gs state:running start_date:2025-04-08 10:58:05.362765+00:00
+[2025-04-08T10:58:05.508+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-08T10:58:05.508+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-08T10:58:05.509+0000] {http.py:180} INFO - Calling HTTP method
+[2025-04-08T10:58:05.517+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-08T10:58:05.523+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-08T10:58:05.968+0000] {http.py:241} INFO - {"job":{"id":227,"configType":"sync","configId":"7a1a28b0-d25f-43c3-b716-67e024f1bc86","enabledStreams":[{"name":"Desempenho"}],"createdAt":1744109885,"updatedAt":1744109885,"status":"running","streamAggregatedStats":[]},"attempts":[{"attempt":{"id":0,"status":"running","createdAt":1744109885,"updatedAt":1744109885},"logType":"formatted","logs":{"events":[],"logLines":[]}}]}
+[2025-04-08T10:58:05.995+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-08T10:58:05.995+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=meta_ads_elt_pipeline, task_id=airbyte_sync_gs.trigger_connection_sync_gs, run_id=scheduled__2025-04-07T00:00:00+00:00, execution_date=20250407T000000, start_date=20250408T105805, end_date=20250408T105805
+[2025-04-08T10:58:06.021+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-08T10:58:06.021+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-08T10:58:06.021+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline queued_at:2025-04-08 10:58:03.983530+00:00
+[2025-04-08T10:58:06.021+0000] {logging_mixin.py:190} INFO - Task hostname:ffa99f2ae5fe operator:HttpOperator
+[2025-04-08T10:58:06.048+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-08T10:58:06.088+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-08T10:58:06.094+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-09T10:06:48.011+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-09T10:06:48.020+0000] {taskinstance.py:2604} INFO - Dependencies not met for <TaskInstance: meta_ads_elt_pipeline.airbyte_sync_gs.trigger_connection_sync_gs scheduled__2025-04-07T00:00:00+00:00 [success]>, dependency 'Task Instance State' FAILED: Task is in the 'success' state.
+[2025-04-09T10:06:48.026+0000] {local_task_job_runner.py:166} INFO - Task is not able to be run

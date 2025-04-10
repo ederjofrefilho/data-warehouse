@@ -1,0 +1,158 @@
+[2025-04-07T12:43:37.031+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-07T12:43:37.049+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_campaigns_run manual__2025-04-07T12:41:49.641640+00:00 [queued]>
+[2025-04-07T12:43:37.057+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_campaigns_run manual__2025-04-07T12:41:49.641640+00:00 [queued]>
+[2025-04-07T12:43:37.057+0000] {taskinstance.py:2867} INFO - Starting attempt 2 of 3
+[2025-04-07T12:43:37.068+0000] {taskinstance.py:2890} INFO - Executing <Task(DbtRunLocalOperator): dbt_processing.data_transformations.meta_ads_campaigns_run> on 2025-04-07 12:41:49.641640+00:00
+[2025-04-07T12:43:37.081+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=6716) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-07T12:43:37.083+0000] {standard_task_runner.py:72} INFO - Started process 6720 to run task
+[2025-04-07T12:43:37.083+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'dbt_processing.data_transformations.meta_ads_campaigns_run', 'manual__2025-04-07T12:41:49.641640+00:00', '--job-id', '146', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_dag.py', '--cfg-path', '/tmp/tmpsfvb4q11']
+[2025-04-07T12:43:37.084+0000] {standard_task_runner.py:105} INFO - Job 146: Subtask dbt_processing.data_transformations.meta_ads_campaigns_run
+[2025-04-07T12:43:37.121+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.dbt_processing.data_transformations.meta_ads_campaigns_run manual__2025-04-07T12:41:49.641640+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-07T12:43:37.195+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_processing.data_transformations.meta_ads_campaigns_run' AIRFLOW_CTX_EXECUTION_DATE='2025-04-07T12:41:49.641640+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-07T12:41:49.641640+00:00'
+[2025-04-07T12:43:37.197+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-07T12:43:37.198+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-07T12:43:37.198+0000] {logging_mixin.py:190} INFO - Current task name:dbt_processing.data_transformations.meta_ads_campaigns_run state:running start_date:2025-04-07 12:43:37.050082+00:00
+[2025-04-07T12:43:37.198+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-07T12:43:37.198+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-07T12:43:38.221+0000] {local.py:213} INFO - dbtRunner is available. Using dbtRunner for invoking dbt.
+[2025-04-07T12:43:38.221+0000] {local.py:416} INFO - Cloning project to writable temp directory /tmp/tmpqfo6_yar from /opt/airflow/dags/dbt/dbt_biera
+[2025-04-07T12:43:38.222+0000] {local.py:427} INFO - Partial parse is enabled and the latest partial parse file is /tmp/cosmos/meta_ads_elt_pipeline__dbt_processing__data_transformations/target/partial_parse.msgpack
+[2025-04-07T12:43:38.228+0000] {config.py:360} INFO - Profile caching is enable.
+[2025-04-07T12:43:38.238+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-04-07T12:43:38.239+0000] {config.py:340} INFO - Profile found in cache using profile: /tmp/cosmos/profile/c99bf486c96f06e0233408d45300d7cde96c22a7e21e1f49350115e2a86b810b/profiles.yml.
+[2025-04-07T12:43:38.239+0000] {runner.py:60} INFO - Trying to run dbtRunner with:
+ ['run', '--models', 'meta_ads_campaigns', '--full-refresh', '--project-dir', '/tmp/tmpqfo6_yar', '--profiles-dir', '/tmp/cosmos/profile/c99bf486c96f06e0233408d45300d7cde96c22a7e21e1f49350115e2a86b810b', '--profile', 'default', '--target', 'dev']
+ in /tmp/tmpqfo6_yar
+[2025-04-07T12:43:38.310+0000] {logging_mixin.py:190} INFO - 12:43:38  Running with dbt=1.9.3
+[2025-04-07T12:43:38.535+0000] {logging_mixin.py:190} INFO - 12:43:38  Registered adapter: postgres=1.9.0
+[2025-04-07T12:43:39.202+0000] {logging_mixin.py:190} INFO - 12:43:39  [WARNING]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.dbt_biera.analytics
+[2025-04-07T12:43:39.536+0000] {logging_mixin.py:190} INFO - 12:43:39  Found 2 models, 4 sources, 434 macros
+[2025-04-07T12:43:39.538+0000] {logging_mixin.py:190} INFO - 12:43:39
+[2025-04-07T12:43:39.538+0000] {logging_mixin.py:190} INFO - 12:43:39  Concurrency: 1 threads (target='dev')
+[2025-04-07T12:43:39.539+0000] {logging_mixin.py:190} INFO - 12:43:39
+[2025-04-07T12:43:39.644+0000] {logging_mixin.py:190} INFO - 12:43:39  1 of 1 START sql view model staging.meta_ads_campaigns ......................... [RUN]
+[2025-04-07T12:43:39.712+0000] {logging_mixin.py:190} INFO - 12:43:39  1 of 1 ERROR creating sql view model staging.meta_ads_campaigns ................ [ERROR in 0.07s]
+[2025-04-07T12:43:39.725+0000] {logging_mixin.py:190} INFO - 12:43:39
+[2025-04-07T12:43:39.726+0000] {logging_mixin.py:190} INFO - 12:43:39  Finished running 1 view model in 0 hours 0 minutes and 0.19 seconds (0.19s).
+[2025-04-07T12:43:39.754+0000] {logging_mixin.py:190} INFO - 12:43:39
+[2025-04-07T12:43:39.755+0000] {logging_mixin.py:190} INFO - 12:43:39  Completed with 1 error, 0 partial successes, and 0 warnings:
+[2025-04-07T12:43:39.756+0000] {logging_mixin.py:190} INFO - 12:43:39
+[2025-04-07T12:43:39.757+0000] {logging_mixin.py:190} INFO - 12:43:39    Database Error in model meta_ads_campaigns (models/staging/meta_ads/meta_ads_campaigns.sql)
+  syntax error at or near "from"
+  LINE 41:     from 
+               ^
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_campaigns.sql
+[2025-04-07T12:43:39.758+0000] {logging_mixin.py:190} INFO - 12:43:39
+[2025-04-07T12:43:39.759+0000] {logging_mixin.py:190} INFO - 12:43:39  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2025-04-07T12:43:40.285+0000] {local.py:465} INFO - Inlets: []
+[2025-04-07T12:43:40.285+0000] {local.py:466} INFO - Outlets: []
+[2025-04-07T12:43:40.286+0000] {local.py:656} INFO - Assigning inlets/outlets with DatasetAlias
+[2025-04-07T12:43:40.306+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/base.py", line 299, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 708, in build_and_run_cmd
+    result = self.run_command(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 556, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 227, in handle_exception_dbt_runner
+    return dbt_runner.handle_exception_if_needed(result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/dbt/runner.py", line 113, in handle_exception_if_needed
+    raise CosmosDbtRunError(f"dbt invocation completed with errors: {error_message}")
+cosmos.exceptions.CosmosDbtRunError: dbt invocation completed with errors: meta_ads_campaigns: Database Error in model meta_ads_campaigns (models/staging/meta_ads/meta_ads_campaigns.sql)
+  syntax error at or near "from"
+  LINE 41:     from 
+               ^
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_campaigns.sql
+[2025-04-07T12:43:40.322+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-04-07T12:43:40.323+0000] {logging_mixin.py:190} INFO - Task start:2025-04-07 12:43:37.050082+00:00 end:2025-04-07 12:43:40.322543+00:00 duration:3.272461
+[2025-04-07T12:43:40.323+0000] {logging_mixin.py:190} INFO - Task:<Task(DbtRunLocalOperator): dbt_processing.data_transformations.meta_ads_campaigns_run> dag:<DAG: meta_ads_elt_pipeline> dagrun:<DagRun meta_ads_elt_pipeline @ 2025-04-07 12:41:49.641640+00:00: manual__2025-04-07T12:41:49.641640+00:00, state:running, queued_at: 2025-04-07 12:41:49.651139+00:00. externally triggered: True>
+[2025-04-07T12:43:40.324+0000] {logging_mixin.py:190} INFO - Failure caused by dbt invocation completed with errors: meta_ads_campaigns: Database Error in model meta_ads_campaigns (models/staging/meta_ads/meta_ads_campaigns.sql)
+  syntax error at or near "from"
+  LINE 41:     from 
+               ^
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_campaigns.sql
+[2025-04-07T12:43:40.324+0000] {taskinstance.py:1226} INFO - Marking task as UP_FOR_RETRY. dag_id=meta_ads_elt_pipeline, task_id=dbt_processing.data_transformations.meta_ads_campaigns_run, run_id=manual__2025-04-07T12:41:49.641640+00:00, execution_date=20250407T124149, start_date=20250407T124337, end_date=20250407T124340
+[2025-04-07T12:43:40.361+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-07T12:43:40.362+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 146 for task dbt_processing.data_transformations.meta_ads_campaigns_run (dbt invocation completed with errors: meta_ads_campaigns: Database Error in model meta_ads_campaigns (models/staging/meta_ads/meta_ads_campaigns.sql)
+  syntax error at or near "from"
+  LINE 41:     from 
+               ^
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_campaigns.sql; 6720)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/base.py", line 299, in execute
+    self.build_and_run_cmd(context=context, cmd_flags=self.add_cmd_flags())
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 708, in build_and_run_cmd
+    result = self.run_command(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 556, in run_command
+    self.handle_exception(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/operators/local.py", line 227, in handle_exception_dbt_runner
+    return dbt_runner.handle_exception_if_needed(result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/cosmos/dbt/runner.py", line 113, in handle_exception_if_needed
+    raise CosmosDbtRunError(f"dbt invocation completed with errors: {error_message}")
+cosmos.exceptions.CosmosDbtRunError: dbt invocation completed with errors: meta_ads_campaigns: Database Error in model meta_ads_campaigns (models/staging/meta_ads/meta_ads_campaigns.sql)
+  syntax error at or near "from"
+  LINE 41:     from 
+               ^
+  compiled code at target/run/dbt_biera/models/staging/meta_ads/meta_ads_campaigns.sql
+[2025-04-07T12:43:40.423+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-04-07T12:43:40.458+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-07T12:43:40.460+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

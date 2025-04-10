@@ -1,0 +1,56 @@
+[2025-04-10T22:54:30.287+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T22:54:30.310+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync.monitor_sync_status manual__2025-04-10T22:54:25.508480+00:00 [queued]>
+[2025-04-10T22:54:30.319+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync.monitor_sync_status manual__2025-04-10T22:54:25.508480+00:00 [queued]>
+[2025-04-10T22:54:30.320+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-04-10T22:54:30.332+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): airbyte_sync.monitor_sync_status> on 2025-04-10 22:54:25.508480+00:00
+[2025-04-10T22:54:30.347+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3398) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-10T22:54:30.348+0000] {standard_task_runner.py:72} INFO - Started process 3402 to run task
+[2025-04-10T22:54:30.349+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'airbyte_sync.monitor_sync_status', 'manual__2025-04-10T22:54:25.508480+00:00', '--job-id', '423', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_elt_pipeline.py', '--cfg-path', '/tmp/tmpeq8rgjek']
+[2025-04-10T22:54:30.350+0000] {standard_task_runner.py:105} INFO - Job 423: Subtask airbyte_sync.monitor_sync_status
+[2025-04-10T22:54:30.402+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.airbyte_sync.monitor_sync_status manual__2025-04-10T22:54:25.508480+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-10T22:54:30.488+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='airbyte_sync.monitor_sync_status' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T22:54:25.508480+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-10T22:54:25.508480+00:00'
+[2025-04-10T22:54:30.490+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-10T22:54:30.490+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-10T22:54:30.490+0000] {logging_mixin.py:190} INFO - Current task name:airbyte_sync.monitor_sync_status state:running start_date:2025-04-10 22:54:30.311073+00:00
+[2025-04-10T22:54:30.490+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-10T22:54:30.490+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-10T22:54:30.491+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2025-04-10T22:54:30.498+0000] {http.py:145} INFO - Poking: /api/public/v1/jobs/279
+[2025-04-10T22:54:30.506+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-10T22:54:30.574+0000] {taskinstance.py:310} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-04-10T22:54:30.574+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-10T22:54:30.602+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T22:54:30.652+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-10T22:54:30.654+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-10T22:55:32.139+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-10T22:55:32.157+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync.monitor_sync_status manual__2025-04-10T22:54:25.508480+00:00 [queued]>
+[2025-04-10T22:55:32.164+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: meta_ads_elt_pipeline.airbyte_sync.monitor_sync_status manual__2025-04-10T22:54:25.508480+00:00 [queued]>
+[2025-04-10T22:55:32.164+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 3
+[2025-04-10T22:55:32.173+0000] {taskinstance.py:2890} INFO - Executing <Task(HttpSensor): airbyte_sync.monitor_sync_status> on 2025-04-10 22:54:25.508480+00:00
+[2025-04-10T22:55:32.185+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3454) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-04-10T22:55:32.186+0000] {standard_task_runner.py:72} INFO - Started process 3458 to run task
+[2025-04-10T22:55:32.189+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'meta_ads_elt_pipeline', 'airbyte_sync.monitor_sync_status', 'manual__2025-04-10T22:54:25.508480+00:00', '--job-id', '425', '--raw', '--subdir', 'DAGS_FOLDER/meta_ads_elt_pipeline.py', '--cfg-path', '/tmp/tmptagad2bt']
+[2025-04-10T22:55:32.190+0000] {standard_task_runner.py:105} INFO - Job 425: Subtask airbyte_sync.monitor_sync_status
+[2025-04-10T22:55:32.247+0000] {task_command.py:467} INFO - Running <TaskInstance: meta_ads_elt_pipeline.airbyte_sync.monitor_sync_status manual__2025-04-10T22:54:25.508480+00:00 [running]> on host ffa99f2ae5fe
+[2025-04-10T22:55:32.317+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='admin' AIRFLOW_CTX_DAG_ID='meta_ads_elt_pipeline' AIRFLOW_CTX_TASK_ID='airbyte_sync.monitor_sync_status' AIRFLOW_CTX_EXECUTION_DATE='2025-04-10T22:54:25.508480+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-10T22:54:25.508480+00:00'
+[2025-04-10T22:55:32.319+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-10T22:55:32.319+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-10T22:55:32.319+0000] {logging_mixin.py:190} INFO - Current task name:airbyte_sync.monitor_sync_status state:running start_date:2025-04-10 22:55:32.157990+00:00
+[2025-04-10T22:55:32.319+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline and current dag run status:running
+[2025-04-10T22:55:32.319+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-04-10T22:55:32.320+0000] {baseoperator.py:423} WARNING - HttpSensor.execute cannot be called outside TaskInstance!
+[2025-04-10T22:55:32.328+0000] {http.py:145} INFO - Poking: /api/public/v1/jobs/279
+[2025-04-10T22:55:32.338+0000] {base.py:84} INFO - Retrieving connection 'airbyte'
+[2025-04-10T22:55:32.360+0000] {base.py:339} INFO - Success criteria met. Exiting.
+[2025-04-10T22:55:32.369+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-04-10T22:55:32.369+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=meta_ads_elt_pipeline, task_id=airbyte_sync.monitor_sync_status, run_id=manual__2025-04-10T22:54:25.508480+00:00, execution_date=20250410T225425, start_date=20250410T225532, end_date=20250410T225532
+[2025-04-10T22:55:32.392+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-10T22:55:32.393+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-10T22:55:32.393+0000] {logging_mixin.py:190} INFO - Dag name:meta_ads_elt_pipeline queued_at:2025-04-10 22:54:25.519320+00:00
+[2025-04-10T22:55:32.393+0000] {logging_mixin.py:190} INFO - Task hostname:ffa99f2ae5fe operator:HttpSensor
+[2025-04-10T22:55:32.440+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-10T22:55:32.451+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
