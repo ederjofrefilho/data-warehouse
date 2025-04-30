@@ -1,4 +1,3 @@
-
 # 📊 Data Warehouse Pipeline com Airbyte, Airflow e dbt
 
 Este projeto implementa um pipeline ELT utilizando **Airbyte**, **Apache Airflow**, **Docker** e **dbt**. Ele automatiza a extração de dados (ex: Meta Ads), realiza transformações com dbt e gerencia toda a orquestração via Airflow.
@@ -86,3 +85,82 @@ Crie as conexões (por exemplo, Meta Ads → PostgreSQL) e copie o `connectionId
 - Conexões e variáveis configuradas no Airflow
 - Fonte de dados integrada ao Airbyte
 - Projeto dbt funcional
+
+### 🛠️ Como Adicionar Novos Pipelines
+
+Este projeto integra Airbyte, Airflow e DBT para construção de pipelines de dados. Siga as etapas abaixo para adicionar um novo pipeline completo ao ecossistema:
+
+---
+
+#### 1. 🔌 Criar a Conexão no Airbyte
+
+- Acesse a interface do **Airbyte**.
+- Crie uma nova conexão entre a origem e o destino desejado.
+- Após criada, copie o valor do campo `connectionId`.
+
+---
+
+#### 2. ⚙️ Criar a Variável no Airflow
+
+- No **Airflow**, acesse o menu **Admin > Variables**.
+- Crie uma nova variável com o seguinte formato de nome:
+
+  ```
+  AIRBYTE_CONNECTION_ID_<NOME_DO_PIPELINE>
+  ```
+
+- O valor da variável deve ser o `connectionId` copiado no passo anterior.
+- Esta variável será usada pela DAG para orquestrar a sincronização dos dados.
+
+---
+
+#### 3. 📅 Criar a DAG no Airflow
+
+- Crie uma nova DAG Python na pasta `dags/`.
+- Utilize como modelo uma das DAGs existentes para manter o padrão do projeto.
+- A DAG deve:
+  - Buscar o `connectionId` via variável de ambiente.
+  - Utilizar o `AirbyteTriggerSyncOperator` para iniciar a sincronização.
+  - Monitorar o status com o `AirbyteJobSensor`.
+
+---
+
+#### 4. 🧪 Desenvolver os Models no DBT
+
+- Crie os arquivos `.sql` correspondentes ao pipeline na pasta `dbt/models/`.
+- Siga as boas práticas do DBT:
+  - Use `stg_` para modelos de *staging*.
+  - Use `fct_` ou `dim_` para modelos finais (*fato* ou *dimensão*).
+- Atualize os arquivos `schema.yml` e `dbt_project.yml` se necessário.
+
+---
+
+#### 5. 🔁 Integrar Execução DBT na DAG
+
+- Após a sincronização dos dados com o Airbyte, adicione tasks para executar os modelos DBT.
+- Utilize os operadores:
+  - `DBTRunOperator`: para executar os modelos.
+  - `DBTTestOperator`: para rodar os testes.
+
+- A ordem das tasks deve ser:
+  1. `sync_airbyte`
+  2. `run_dbt`
+  3. `test_dbt`
+
+---
+
+📌 **Dica:**  
+
+> **Nota:** A DAG `meta_ads_elt_pipeline.py` é usada apenas como exemplo.  
+> Embora ela esteja configurada para o conector do **Meta Ads**, o projeto não é limitado a esse caso de uso.  
+> Você pode usar esse exemplo como base para criar pipelines de qualquer origem e destino compatíveis com o Airbyte.  
+> 
+> As variáveis `AIRBYTE_META_ADS_POSTGRES_CONNECTION_ID` e `AIRBYTE_GS_CONNECTION_ID` são específicas do exemplo e **não são obrigatórias para o projeto como um todo**.  
+> 
+> No entanto, **as variáveis globais** abaixo **devem estar configuradas** no Airflow, pois são utilizadas para autenticação com a API do Airbyte:
+>
+> - `AIRBYTE_USERNAME`
+> - `AIRBYTE_PASSWORD`
+
+
+Você pode usar a DAG `meta_ads_elt_pipeline.py` (em `dags/`) como referência de estrutura.
